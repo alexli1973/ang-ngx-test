@@ -1,0 +1,19 @@
+<div class="main-container">
+  <app-button-element
+    *ngFor="let btn of [1,2,3]"
+    [name]="btn"
+    (click)="loadTemplate(btn)"
+    [isDisabled]="isDisabled"
+    [className]="btn"
+    [currentStep]="currentStep"
+  ></app-button-element>
+  <br>
+  Current Step : {{currentStep.id}}
+  <br>
+  <app-form-element
+    [currentValue]="currentValue"
+    [currentStep]="currentStep"
+    [placeholder]="placeholder"
+  ></app-form-element>
+</div>
+
