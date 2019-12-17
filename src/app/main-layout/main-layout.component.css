@@ -1,0 +1,70 @@
+.main-container {
+  width: 500px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group {
+  display: flex;
+}
+
+form, input {
+  width: 100%;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #066daf;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+span {
+  font-weight: 700;
+  color: #066DAF;
+}
+
+.btn-submit, .btn-reset {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #066DAF;
+}
+
+.btn-reset {
+  background-color: #af1f08;
+}
+
+button:disabled {
+  background-color: #929292;
+}
+
+.result-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.result-view {
+  font-size: 20px;
+}
+

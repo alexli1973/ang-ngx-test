@@ -1,4 +1,17 @@
-<div>
-  <input type="text" placeholder={{placeholder}} value={{currentValue}} (focusout)="getInputValue($event)">
+<div class="form-group">
+  currentValue: {{currentValue}} <br>
+  <label>test</label>
+  <input class="form-control"
+         name="title"
+         type="text"
+         placeholder={{placeholder}}
+         value={{currentValue}}
+         [(ngModel)]="title"
+         #name="ngModel" required
+         (blur)="getInputValue($event)"
+  >
+  <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+    the field cannot be empty
+  </div>
 <!--  <button (click)="tempSave()">tempSave</button>-->
 </div>

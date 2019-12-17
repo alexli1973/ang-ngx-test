@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../store/app.state';
-import {AddEmail} from '../../store/step.action';
+import {UpdateStep} from '../../store/step.action';
 import {Step} from '../../step.model';
 
 @Component({
@@ -10,19 +10,22 @@ import {Step} from '../../step.model';
   styleUrls: ['./form-element.component.css']
 })
 export class FormElementComponent implements OnInit {
-  @Input() currentValue;
+  public currentValue: string;
   @Input() currentStep: Step;
   @Input() placeholder: String;
-  public newValue = 2;
+  public title: string;
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+    debugger
+     // this.currentStep.value = this.store.steps;
   }
 
   getInputValue(event) {
     this.currentStep.value = event.target.value;
+   // this.currentValue = event.target.value;
     debugger
-    this.store.dispatch(new AddEmail(this.currentStep));
+    this.store.dispatch(new UpdateStep(this.currentStep));
   }
 
   tempSave() {

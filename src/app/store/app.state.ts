@@ -4,6 +4,8 @@ export interface AppState {
   stepPage: {
     steps: Step[],
     buttons: [],
-    currentStepId: any
+    currentStepId: any,
+    submitButtonFlag: boolean,
+    showResultData: boolean
   };
 }

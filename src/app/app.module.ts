@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FormElementComponent } from './main-layout/form-element/form-element.component';
 import { ButtonElementComponent } from './main-layout/button-element/button-element.component';
 import {stepReducer} from './store/step.reducer';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import {stepReducer} from './store/step.reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({stepPage: stepReducer})
+    StoreModule.forRoot({stepPage: stepReducer}),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

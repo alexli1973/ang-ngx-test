@@ -5,6 +5,7 @@ export class Step {
     public buttonName: number,
     public value: string,
     public placeholder?: string,
+    public isDisabled?: boolean,
     public id?: number
   ) {}
 }

@@ -1,19 +1,41 @@
 <div class="main-container">
-  <app-button-element
-    *ngFor="let btn of [1,2,3]"
-    [name]="btn"
-    (click)="loadTemplate(btn)"
-    [isDisabled]="isDisabled"
-    [className]="btn"
-    [currentStep]="currentStep"
-  ></app-button-element>
-  <br>
-  Current Step : {{currentStep.id}}
-  <br>
-  <app-form-element
-    [currentValue]="currentValue"
-    [currentStep]="currentStep"
-    [placeholder]="placeholder"
-  ></app-form-element>
+  <div class="buttons-container">
+    <app-button-element
+      *ngFor="let btn of buttons"
+      [name]="btn.name"
+      (click)="loadTemplate(btn.name)"
+      [isDisabled]="btn.isDisabled"
+      [className]="btn"
+      [currentStep]="currentStep"
+    ></app-button-element>
+  </div>
+
+  <div *ngIf="!showResultData" class="form-group">
+    <form [formGroup]="stepForm">
+      <label>{{currentStep.name}}</label>
+      <input formControlName="universal"
+             type="text"
+             value={{currentStep.value}}
+             placeholder={{placeholder}}
+             (blur)="updateInputValue($event)"
+      >
+      <div class="alert  alert-danger" *ngIf="stepForm.get('universal').hasError('required') && stepForm.get('universal').touched">
+        The field cannot be empty...
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="showResultData" class="result-view">
+    <ul>
+      <li *ngFor="let step of steps"><span>{{step.name}}:</span> {{this.step.value}}</li>
+    </ul>
+
+  </div>
+
+  <div class="result-buttons">
+    <button class="btn-submit" [disabled]="isDisabled" (click)="submitForm()">Submit</button>
+    <button class="btn-reset" (click)="resetForm()">Clear</button>
+  </div>
 </div>
+
 
